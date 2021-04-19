@@ -1,2 +1,2 @@
 # SLAM_Scripts
-Scripts related to SLAM and OPtimization.
+Scripts related to SLAM and Optimization.
