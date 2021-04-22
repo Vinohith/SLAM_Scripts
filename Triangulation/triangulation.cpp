@@ -10,8 +10,10 @@
 /*
 Step 1 : Extract features from image1 and Image2 and then match them (matches are from Image1(queryIdx) to Image2(trainIdx)).
 Step 2 : Estimate the 2D-2D pose between the two image frames (this produces the transformation of points in frame of Image1 
-															   to frame of Image2), which is the relative pose T_c2_c1.
-Step 3 : Triangulate the points using the matches (the output points will be in the in the reference frame of Image1)
+															   to frame of Image2), which gives the relative pose T_c2_c1.
+		 p_c2 = T_c2_c1 * p_c1
+Step 3 : Triangulate the points using the matches (the output points will be in the in the reference frame, which is the 
+         frame in which the poses of the two cameras is defined with respect to) to produce the 4D homogeneous points.
 
 Example : If the frame of Image1 is the world frame, then performing 2D-2D pose estimation results in Tcw = [R|t] for Image2
 		  (i.e. the transformation of points in world frame to the frame of Image2 (current frame)). Because the triangulation
